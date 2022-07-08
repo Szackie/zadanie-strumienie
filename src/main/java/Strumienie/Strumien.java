@@ -4,27 +4,32 @@ import java.io.IOException;
 
 class Strumien {
     private String nazwa;
-    private long licznikZnakow=0;
-    private boolean zamkniety=false;
+    private long licznikZnakow = 0;
+    private boolean zamkniety = false;
 
-    public Strumien(String nazwa){
-        this.nazwa=nazwa;
+    public Strumien(String nazwa) {
+        this.nazwa = nazwa;
     }
-    public void pisz(String lancuch) throws IOException {
-        if(!zamkniety)
-        this.licznikZnakow+=lancuch.length();
+
+    public void pisz(String lancuch) {
+        if (!zamkniety)
+            this.licznikZnakow += lancuch.length();
         else
             throw new RuntimeException("Stream already closed");
     }
-    public long dajLiczbeZnakow(){
+
+    public long dajLiczbeZnakow() {
         return licznikZnakow;
     }
-    public boolean czyZamkniety(){
+
+    public boolean czyZamkniety() {
         return zamkniety;
     }
-    public void zamknij() throws IOException {
-        zamkniety=true;
+
+    public void zamknij() {
+        zamkniety = true;
     }
+
     public String toString() {
         return nazwa + " \n " + dajLiczbeZnakow() + "\n" + czyZamkniety();
     }

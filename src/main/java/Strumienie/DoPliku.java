@@ -28,8 +28,8 @@ class DoPliku extends Strumien{
         }
     }
     public void pisz(String lancuch) {
-        try {
         super.pisz(lancuch);
+        try {
         if(plik!=null)
             plik.writeUTF(lancuch);
         else
